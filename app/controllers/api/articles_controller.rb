@@ -9,4 +9,8 @@ class Api::ArticlesController < ApplicationController
     render json: { article: article }
   end
 
+  def create
+  binding.pry
+  end
+
 end

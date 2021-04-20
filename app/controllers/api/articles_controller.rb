@@ -9,4 +9,12 @@ class Api::ArticlesController < ApplicationController
     render json: { article: article }
   end
 
+  def create
+    article = Article.create(params[:article].permit(:title, :body))
+    if article.persisted?
+      render json: { message: 'The article was successfully created' }, status: 201
+    else
+      render json: {message: article.errors.full_messages.to_sentence }, status: 422
+    end
+  end
 end

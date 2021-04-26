@@ -14,7 +14,7 @@ class Api::ArticlesController < ApplicationController
     if article.persisted?
       render json: { message: 'The article was successfully created' }, status: 201
     else
-      render json: {message: article.errors.full_messages.to_sentence }, status: 422
+      render json: { message: article.errors.full_messages.to_sentence }, status: 422
     end
   end
 end
